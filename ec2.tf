@@ -45,7 +45,7 @@ resource "aws_security_group" "instance_sg" {
 # Launch EC2 Instances in each Subnet
 resource "aws_instance" "instances" {
   count         = 9
-  ami           = "ami-0c55b159cbfafe1f0"  # Update with your region-specific AMI
+  ami           = "ami-09c813fb71547fc4f"  # Update with your region-specific AMI
   instance_type = "t2.micro"
   subnet_id     = element(aws_subnet.subnets[*].id, count.index % 3)
   security_groups = [aws_security_group.instance_sg.name]
